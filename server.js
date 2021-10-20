@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const noteData = require('./db/db.json');
+let noteData = require('./db/db.json');
 const PORT = process.env.PORT || 3001;
 // create app variable and call express() function so that the whole library basically comes in 
 //as a big function so I can execute and put it in the variable
@@ -45,15 +45,15 @@ app.post('/api/notes', (req, res) => {
       console.error(err);
     } else {
       // Convert string into JSON object
-      const parsedNotes = JSON.parse(data);
+      noteData = JSON.parse(data);
 
       // Add a new note
-      parsedNotes.push(newNote);
+      noteData.push(newNote);
 
       // Write updated notes
       fs.writeFile(
         './db/db.json',
-        JSON.stringify(parsedNotes, null),
+        JSON.stringify(noteData, null),
         (writeErr) =>
           writeErr
             ? console.error(writeErr)
