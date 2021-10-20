@@ -40,10 +40,29 @@ app.post('/api/notes', (req, res) => {
       text,
     };
   }
+  fs.readFile('./db/db.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+      // Convert string into JSON object
+      const parsedNotes = JSON.parse(data);
 
+      // Add a new note
+      parsedNotes.push(newNote);
 
+      // Write updated notes
+      fs.writeFile(
+        './db/db.json',
+        JSON.stringify(parsedNotes, null),
+        (writeErr) =>
+          writeErr
+            ? console.error(writeErr)
+            : console.info('Successfully updated notes!')
+      );
+    }
+  
 });
-
+});
 
 // listening, at which port to listen (this case is 3001)
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
