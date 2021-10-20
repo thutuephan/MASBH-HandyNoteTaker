@@ -26,8 +26,10 @@ app.get('/api/notes', (req, res) => res.json(noteData));
 
 // POST request for notes
 app.post('/api/notes', (req, res) => {
+
     // Let the client know that their POST request was received
     res.json(`${req.method} request received`);
+
     // Destructuring assignment for the items in req.body
   const { title, text } = req.body;
   // If all the required properties are present
@@ -47,6 +49,7 @@ app.post('/api/notes', (req, res) => {
       noteData = JSON.parse(data);
       // Add a new note
       noteData.push(newNote);
+      
       // Write updated notes
       fs.writeFile(
         './db/db.json',
