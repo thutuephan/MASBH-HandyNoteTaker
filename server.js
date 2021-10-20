@@ -20,9 +20,15 @@ app.get('/', (req, res) =>
 app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
+
+// GET request for notes
 app.get('/api/notes', (req, res) => res.json(noteData));
 
-
+// POST request for notes
+app.post('/api/notes', (req, res) => {
+    // Let the client know that their POST request was received
+    res.json(`${req.method} request received`);
+});
 
 
 // listening, at which port to listen (this case is 3001)
