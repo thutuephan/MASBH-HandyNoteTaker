@@ -34,13 +34,12 @@ app.post('/api/notes', (req, res) => {
 
   // If all the required properties are present
   if (title && text) {
-    // Variable for the object we will save
-    const newNote = {
+    // Variable for the object we will save notes
+    var newNote = {
       title,
       text,
     };
-
-
+  }
 
 
 });
