@@ -28,6 +28,21 @@ app.get('/api/notes', (req, res) => res.json(noteData));
 app.post('/api/notes', (req, res) => {
     // Let the client know that their POST request was received
     res.json(`${req.method} request received`);
+
+    // Destructuring assignment for the items in req.body
+  const { title, text } = req.body;
+
+  // If all the required properties are present
+  if (title && text) {
+    // Variable for the object we will save
+    const newNote = {
+      title,
+      text,
+    };
+
+
+
+
 });
 
 
