@@ -39,6 +39,7 @@ app.post('/api/notes', (req, res) => {
      newNote = {
       title,
       text,
+      id:"",
     };
   }
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
