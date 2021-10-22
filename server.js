@@ -33,20 +33,20 @@ app.get('/api/notes', (req, res) => res.json(noteData));
 // POST request for notes
 app.post('/api/notes', (req, res) => {
 
-    // Let the client know that their POST request was received
-    res.json(`${req.method} request received`);
+  // Let the client know that their POST request was received
+  res.json(`${req.method} request received`);
 
-    // Destructuring assignment for the items in req.body
+  // Destructuring assignment for the items in req.body
   const { title, text } = req.body;
   // If all the required properties are present
   let newNote = {};
   if (title && text) {
     // Variable for the object we will save notes
-     newNote = {
+    newNote = {
       title,
       text,
       // Generate specific id for notes
-      id:uuidv4(),
+      id: uuidv4(),
     };
     console.log(newNote);
   }
@@ -58,7 +58,7 @@ app.post('/api/notes', (req, res) => {
       noteData = JSON.parse(data);
       // Add a new note
       noteData.push(newNote);
-      
+
       // Write updated notes
       fs.writeFile(
         './db/db.json',
@@ -69,16 +69,34 @@ app.post('/api/notes', (req, res) => {
             : console.info('Successfully updated notes!')
       );
     }
-  
-});
+
+  });
 });
 // Delete notes
-app.delete("/api/notes/:id", (req,res) => {
+app.delete("/api/notes/:id", (req, res) => {
   let noteId = req.params.id;
-  fs.readFile("./db/db.js", "utf-8") => {
-  .then((data) => JSON.parse(data))
-  ...
-  }
+  fs.readFile('./db/db.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+      // Convert string into JSON object
+      noteId = JSON.parse(data);
+      // Remove a note and make a new array
+      noteId.filter(newArrNote);
+
+      // Write updated notes
+      fs.writeFile(
+        './db/db.json',
+        JSON.stringify(noteData, null),
+        (writeErr) =>
+          writeErr
+            ? console.error(writeErr)
+            : console.info('Successfully updated notes!')
+      );
+    }
+
+  });
+  
 })
 
 
