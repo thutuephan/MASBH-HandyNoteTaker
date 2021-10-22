@@ -76,17 +76,17 @@ app.post('/api/notes', (req, res) => {
 app.delete("/api/notes/:id", (req, res) => {
   const idToDelete = req.params.id;
 
-  const someArray = noteData.filter(item => item.id !== idToDelete)
+  noteData = noteData.filter(item => item.id !== idToDelete)
 
       fs.writeFile(
         './db/db.json',
-        JSON.stringify(someArray, null),
+        JSON.stringify(noteData, null),
         (writeErr) =>
           writeErr
             ? console.error(writeErr)
             : console.info('Successfully deleted!')
       );
-      res.json(someArray);
+      res.json(noteData);
     }
 )
 
