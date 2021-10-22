@@ -6,7 +6,7 @@
   
   ## Description
     This application uses an Express.js back end to create, save and delete note data from a JSON file.
-  <br>
+  
 
   ## Table of Contents
   - [Description](#)
@@ -30,16 +30,17 @@
   * The app will allow users to create, save and delete notes. When users get on the landing page, they will be presented a link to a notes page. By clicking on the new note icon (+), users write new note title and note text; then a SAVE icon appears in the navigation at the top right corner of the page next to the (+) icon.
     * When user clicks on an existing note in the left-hand column, the note's content appears in the right-hand column.
     * To delete the note that the user doesn not need anymore, click on the red trash can icon next to the note title and it will disappear.
-    <br>
+    
   ## Links
   * The URL of the GitHub repository with a unique name and a README describing the project: https://github.com/thutuephan/MASBH-HandyNoteTaker
   * The heroku URL of the functional, deployed application: 
-  * [Walkthrough Video](https://drive.google.com/file/d/11wkH_8Y7FECmIox_peZDXuVqWN4nG7Oe/view?usp=sharing)
+  * [Walkthrough Video](https://watch.screencastify.com/v/C6pAiYAdLRT06pPJMmOE)
+  
 
   ## Screenshots
-  ![landing-page]()
-  ![writing-new-note]()
-  ![deleting-note]()
+  ![landing-page](https://github.com/thutuephan/MASBH-HandyNoteTaker/blob/main/public/assets/images/Landing-page.PNG)
+  ![writing-new-note](https://github.com/thutuephan/MASBH-HandyNoteTaker/blob/main/public/assets/images/Writing-new-note.PNG)
+  ![deleting-note](https://github.com/thutuephan/MASBH-HandyNoteTaker/blob/main/public/assets/images/Deleting-finishpayroll.PNG)
 
   ## Credits
   * THU PHAN  
@@ -82,4 +83,3 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   
 
 
-https://watch.screencastify.com/v/C6pAiYAdLRT06pPJMmOE
