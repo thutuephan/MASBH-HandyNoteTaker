@@ -90,6 +90,5 @@ app.delete("/api/notes/:id", (req, res) => {
     }
 )
 
-
 // listening, at which port to listen (this case is 3001)
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
