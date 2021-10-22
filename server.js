@@ -75,6 +75,10 @@ app.post('/api/notes', (req, res) => {
 // Delete notes
 app.delete("/api/notes/:id", (req, res) => {
   const idToDelete = req.params.id;
+  // In order to use filter I need to give it a function that returns true or false based on whether I want to keep an item in the array
+
+  // Don't need a new variable to store the filtered version of noteData after deleting a note, 
+  // so just set that equal to noteData to update noteData 
 
   noteData = noteData.filter(item => item.id !== idToDelete)
 
