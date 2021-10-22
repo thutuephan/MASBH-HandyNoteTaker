@@ -30,9 +30,6 @@ app.get('/notes', (req, res) =>
 // GET request for notes
 app.get('/api/notes', (req, res) => res.json(noteData));
 
-// Generate id for notes
-
-
 // POST request for notes
 app.post('/api/notes', (req, res) => {
 
@@ -48,8 +45,10 @@ app.post('/api/notes', (req, res) => {
      newNote = {
       title,
       text,
-      id:"",
+      // Generate specific id for notes
+      id:uuidv4(),
     };
+    console.log(newNote);
   }
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
     if (err) {
