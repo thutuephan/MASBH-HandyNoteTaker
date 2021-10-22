@@ -74,33 +74,21 @@ app.post('/api/notes', (req, res) => {
 });
 // Delete notes
 app.delete("/api/notes/:id", (req, res) => {
-  let noteId = req.params.id;
-  fs.readFile('./db/db.json', 'utf8', (err, data) => {
-    if (err) {
-      console.error(err);
-    } else {
-      // Convert string into JSON object
-      noteId = JSON.parse(data);
-      // Remove a note and make a new array
-      noteId.filter(newArrNote);
+  const idToDelete = req.params.id;
 
-      // Write updated notes
+  const someArray = noteData.filter(item => item.id !== idToDelete)
+
       fs.writeFile(
         './db/db.json',
-        JSON.stringify(noteData, null),
+        JSON.stringify(someArray, null),
         (writeErr) =>
           writeErr
             ? console.error(writeErr)
-            : console.info('Successfully updated notes!')
+            : console.info('Successfully deleted!')
       );
+      res.json(someArray);
     }
-
-  });
-  
-})
-
-
-
+)
 
 
 // listening, at which port to listen (this case is 3001)
