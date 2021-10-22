@@ -72,8 +72,14 @@ app.post('/api/notes', (req, res) => {
   
 });
 });
-// Delete a note 
-app.delete("/api/notes/:id")
+// Delete notes
+app.delete("/api/notes/:id", (req,res) => {
+  let noteId = req.params.id;
+  fs.readFile("./db/db.js", "utf-8") => {
+  .then((data) => JSON.parse(data))
+  ...
+  }
+})
 
 
 
