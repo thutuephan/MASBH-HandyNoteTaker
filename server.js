@@ -2,8 +2,12 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const uuidv4 = require("uuid/v4");
+uuidv4();
 let noteData = require('./db/db.json');
 const PORT = process.env.PORT || 3001;
+
+// Initialize Express package
 // create app variable and call express() function so that the whole library basically comes in 
 //as a big function so I can execute and put it in the variable
 const app = express();
@@ -13,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-// GET Routes for homepage and the next page
+// GET Routes for homepage and the next page (notes page)
 app.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/index.html'))
 );
@@ -24,6 +28,9 @@ app.get('/notes', (req, res) =>
 // GET request for notes
 app.get('/api/notes', (req, res) => res.json(noteData));
 
+// Generate id for notes
+
+
 // POST request for notes
 app.post('/api/notes', (req, res) => {
 
@@ -33,7 +40,7 @@ app.post('/api/notes', (req, res) => {
     // Destructuring assignment for the items in req.body
   const { title, text } = req.body;
   // If all the required properties are present
-  var newNote = {};
+  let newNote = {};
   if (title && text) {
     // Variable for the object we will save notes
      newNote = {
@@ -64,6 +71,12 @@ app.post('/api/notes', (req, res) => {
   
 });
 });
+// Delete a note 
+app.delete("/api/notes/:id")
+
+
+
+
 
 // listening, at which port to listen (this case is 3001)
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
