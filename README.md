@@ -33,7 +33,7 @@
     
   ## Links
   * The URL of the GitHub repository with a unique name and a README describing the project: https://github.com/thutuephan/MASBH-HandyNoteTaker
-  * The heroku URL of the functional, deployed application: 
+  * The heroku URL of the functional, deployed application: https://do-you-need-a-handy-note-taker.herokuapp.com/notes
   * [Walkthrough Video](https://watch.screencastify.com/v/C6pAiYAdLRT06pPJMmOE)
   
 
